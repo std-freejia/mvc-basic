@@ -28,7 +28,7 @@ public class HelloServlet extends HttpServlet {
         // http message body 에 메시지가 들어감
         response.getWriter().write("hello"+username);
 
-        // application.properties 에 로그레벨 정의 가능 
+        // application.properties 에 로그레벨 정의 가능
         // logging.level.org.apache.coyote.http11=debug
     }
 }
