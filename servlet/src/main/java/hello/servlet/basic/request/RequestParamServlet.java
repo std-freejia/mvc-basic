@@ -11,7 +11,8 @@ import java.util.Enumeration;
 /*
  1. 파라미터 전송 기능
  http://localhost:8080/request-param?username=hello&age=20
- GET 방식에서 쿼리스트링으로 데이터를 넘긴다
+ GET 방식에서 쿼리스트링으로 파라미터를 넘긴다
+ 검색, 필터링
  */
 @WebServlet(name="requestParamServlet", urlPatterns = "/request-param")
 public class RequestParamServlet extends HttpServlet {
