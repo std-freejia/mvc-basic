@@ -14,6 +14,7 @@ public class HelloServlet extends HttpServlet {
     // control + R : 서버 재시작
     @Override // URL이 호출되면, 서블릿 컨테이너는 service()메서드를 실행한다.
     protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        // HttpServletRequest : http요청 메시지를 파싱해주는 객체.
         System.out.println("HelloServlet.service");
         System.out.println("request = " + request);
         System.out.println("response = " + response);
@@ -21,6 +22,7 @@ public class HelloServlet extends HttpServlet {
         // GET 방식으로 요청 쿼리 스트링: http://localhost:8080/hello?username=hi
         String username = request.getParameter("username");
         System.out.println("username = " + username);
+        // setAttribute(), getAttribute()로 데이터를 임시 저장
 
         // http 응답(response) 메시지에 내용이 담긴다.
         response.setContentType("text/plain");
