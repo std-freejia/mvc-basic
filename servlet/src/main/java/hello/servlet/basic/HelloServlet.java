@@ -18,7 +18,7 @@ public class HelloServlet extends HttpServlet {
         System.out.println("request = " + request);
         System.out.println("response = " + response);
 
-        // 쿼리 파라미터 http://localhost:8080/hello?username=hi
+        // GET 방식으로 요청 쿼리 스트링: http://localhost:8080/hello?username=hi
         String username = request.getParameter("username");
         System.out.println("username = " + username);
 
@@ -28,5 +28,7 @@ public class HelloServlet extends HttpServlet {
         // http message body 에 메시지가 들어감
         response.getWriter().write("hello"+username);
 
+        // application.properties 에 로그레벨 정의 가능 
+        // logging.level.org.apache.coyote.http11=debug
     }
 }
