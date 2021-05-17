@@ -16,7 +16,7 @@ class MemberRepositoryTest {
     MemberRepository memberRepository = MemberRepository.getInstance();
 
     @AfterEach // 테스트 @Test가 '끝날 떄 마다' 실행 되는 어노테이션.
-    void afterEach(){ 
+    void afterEach(){
         memberRepository.clearStore();
     }
 
