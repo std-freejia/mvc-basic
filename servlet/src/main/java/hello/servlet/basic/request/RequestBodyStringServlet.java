@@ -27,6 +27,6 @@ public class RequestBodyStringServlet extends HttpServlet {
         [POST] http://localhost:8080/request-body-string
         body의 raw 데이터로 메시지를 입력하여 보내본다.
          */
-        response.getWriter().write("ok");
+        response.getWriter().write("ok"); // 페이지에 '단순 텍스트 응답'
     }
 }
