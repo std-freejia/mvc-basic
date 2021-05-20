@@ -42,7 +42,7 @@ public class FrontControllerServletV2 extends HttpServlet {
             response.setStatus(HttpServletResponse.SC_NOT_FOUND);
             return;
         }
-        
+
         // 모든 컨트롤러는 뷰 객체를 생성하여 반환한다.
         MyView view = controller.process(request, response);
         view.render(request, response); // view를 랜더링 한다!
