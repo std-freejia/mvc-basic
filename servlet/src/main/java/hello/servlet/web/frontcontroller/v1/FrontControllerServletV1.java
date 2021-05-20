@@ -13,11 +13,13 @@ import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 
-// /front-controller/v1/ 의 하위 호출은 모두 이 컨트롤러를 탄다.
+/* 프론트 컨트롤러
+  /front-controller/v1를 포함한 모든 하위 호출은 모두 이 서블릿에서 받아들여서 URI에 맞게 컨트롤러 객체를 생성한다.
+*/
 @WebServlet(name="frontControllerServletV1", urlPatterns = "/front-controller/v1/*")
 public class FrontControllerServletV1 extends HttpServlet {
 
-    // 매핑 정보
+    // 매핑 정보 (URI문자열, 호출할 컨트롤러 쌍)
     private Map<String, ControllerV1> controllerMap = new HashMap<>();
 
     // 생성자 : URL 에 따라 컨트롤러를 다르게 호출한다.
