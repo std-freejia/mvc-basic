@@ -21,7 +21,7 @@ public class MyView {
     }
 
     public void render(Map<String, Object> model, HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
-        modelToRequestAttribute(model, request); // 모델에 있는 값을 다 꺼내서 HttpServletRequest의 attribute로 넣는다. 
+        modelToRequestAttribute(model, request); // 모델에 있는 값을 다 꺼내서 HttpServletRequest의 attribute로 넣는다.
 
         RequestDispatcher dispatcher = request.getRequestDispatcher(viewPath);
         dispatcher.forward(request, response); // forward()가 view 를 랜더링 해준다.
