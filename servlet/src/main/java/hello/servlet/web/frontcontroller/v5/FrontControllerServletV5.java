@@ -18,6 +18,17 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+/**
+ * 만약 어떤 개발자는 '컨트롤러 V3'방식으로 개발하고 싶고, 어떤 개발자는 '컨트롤러 V4' 방식으로 개발하고 싶다면 어떻게 해야 할까?
+ *
+ * 어댑터 패턴 사용하기!
+ * 완전히 다른 인터페이스들을 모두 사용할 수 있도록, 프론트 컨트롤러가 다양한 방식의 컨트롤러를 처리할 수 있도록 변경해보자.
+ *
+ * 핸들러 어댑터 목록 : 핸들러를 처리할 수 있는 핸들러 어댑터를 조회한다.
+ * 여기서 핸들러는 컨트롤러와 같은 개념이라고 이해하자.
+ * 해당 핸들러를 처리할 수 있는 어댑터(핸들러 어댑터)를 통해 핸들러(컨트롤러)를 호출한다.
+ */
+
 @WebServlet(name="frontControllerServletV5", urlPatterns = "/front-controller/v5/*")
 public class FrontControllerServletV5 extends HttpServlet {
 
@@ -59,7 +70,7 @@ public class FrontControllerServletV5 extends HttpServlet {
         // 2. 핸들러 어댑터 찾아오세요. (해당 핸들러를 처리할 수 있는 핸들러 어댑터가 필요하다.) - ControllerV3HandlerAdapter 를 받음
         MyHandlerAdapter adapter = getHandlerAdapter(handler);
 
-        // 3. 어댑터에 맞는 컨트롤러가 모델 뷰를 반환한다. 
+        // 3. 어댑터에 맞는 컨트롤러가 모델 뷰를 반환한다.
         ModelView mv = adapter.handle(request, response, handler);
 
         // 4. 논리적 이름을 물리 이름(실제 경로)로 변환 한다.
@@ -68,7 +79,6 @@ public class FrontControllerServletV5 extends HttpServlet {
 
         // 5. 모델을 넘긴다. <- getModel()에 값을 넣고 랜더링한다.
         view.render(mv.getModel(), request, response); // 랜더링
-
     }
 
     private MyHandlerAdapter getHandlerAdapter(Object handler) {
